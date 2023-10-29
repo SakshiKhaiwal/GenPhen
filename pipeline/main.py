@@ -3,7 +3,7 @@ import pandas as pd
 import json
 import numpy as np
 import time
-from Models_updated import ModelBuilder
+from model import ModelBuilder
 from parameters import get_parameters
 from preprocess import data_preprocessing
 from feature_selection import FeatureSelection
