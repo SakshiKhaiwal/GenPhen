@@ -11,3 +11,7 @@ In this project, we investigate the associations between the phenotypes and geno
 - conda install --file requirements.txt
 ```
 
+# Running the pipeline
+
+
+
