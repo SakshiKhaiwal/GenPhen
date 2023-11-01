@@ -11,7 +11,25 @@ In this project, we investigate the associations between the phenotypes and geno
 - conda install --file requirements.txt
 ```
 
+
 # Running the pipeline
 
+</details>
+
+- Input data.
+The input dataset to run the pipeline should be in 'CSV' format, where the first column contains the target variable and the rest of the columns are the features. An example of the data file is given in the folder 'data' with the name 'Test_data.csv'
+
+- Pipeline parameters.
+To see all the parameters of the pipeline, run:
+
+   -python main.py --help
+
+- Train the model. 
+To train the model with the default parameters, run the following command:
+
+   -python main.py  --data_path=INPUT_DATA --data_path_out=OUTPUT_DATA_PATH
+
+- Results.
+The output path should contain two JSON files with the suffix '_prediction_accuracy.json' and '_additional_information.json'. The files contain dictionary object, '_prediction_accuracy.json':'Test r2 score', 'Train r2 score', 'Test pears value': Test_pears_val, 'Train pears value', 'Training time' and the '_additional_information.json':'y_train_predicted', 'y_test_predicted', 'training_strains', 'testing_strains' and 'Features importance scores'.
 
 
