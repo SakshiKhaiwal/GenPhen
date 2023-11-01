@@ -1,3 +1,4 @@
+import pandas
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import GridSearchCV
@@ -8,14 +9,36 @@ from sklearn.feature_selection import SelectFromModel
 from skopt import BayesSearchCV
 from skopt.space import Real
 from hi_lasso.hi_lasso import HiLasso
+
+
 class FeatureSelection:
-    def __init__(self ,X_train ,X_test ,y_train):
+    """
+    Class for selection of features from high dimensional data.
+    """
+    def __init__(self , X_train: pandas.DataFrame , X_test: pandas.DataFrame, y_train: np.ndarray):
+        """
+        Instantiate Feature Selection.
+        Args:
+            X_train: training input data.
+            X_test: test input data.
+            y_train: training output data.
+        """
         self.X_train = X_train
         self.y_train = y_train
         self.X_test =  X_test
         self.selector = None
 
     def select_features(self, method='lasso_selection_grid'):
+        """
+
+        Parameters
+        ----------
+        method
+
+        Returns
+        -------
+
+        """
         if method == 'lasso_selection_grid':
             features = self.lasso_selection_grid()
         elif method == 'high_lasso':
@@ -79,8 +102,7 @@ class FeatureSelection:
 
         return {'X_train': LASSO_X_train ,'X_test': LASSO_X_test }
 
-    def lasso_selection_bayes(self ,n_iterations=200,nfolds=5 ,njobs=-1):
-
+    def lasso_selection_bayes(self, n_iterations=200,nfolds=5 ,njobs=-1):
 
         X_train = self.X_train
         X_test = self.X_test
@@ -102,7 +124,6 @@ class FeatureSelection:
         self.LASSO_X_test = LASSO_X_test
 
         return {'X_train': LASSO_X_train ,'X_test': LASSO_X_test }
-
 
     def high_lasso(self ,L=30 ,alpha=0.05 ,njobs= 50):
         X_train = self.X_train

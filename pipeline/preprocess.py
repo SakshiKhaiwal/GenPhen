@@ -5,11 +5,13 @@ import pandas as pd
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import ShuffleSplit
 
-## This is the section on data preprocessing which includes, splitting the test and training set, removing NA and scaling the data.
-## This is done via two strategies: 1. Random split and 2. Split by clade and considering only one clade.
-
-
 class data_preprocessing:
+
+    """
+    ## This is the section on data preprocessing which includes, splitting the test and training set, removing NA and scaling the data.
+    ## This is done via two strategies: 1. Random split and 2. Split by clade and considering only one clade.
+
+    """
     def __init__(self, data):
         self.data = data  ### CSV file with first column as phenotypes and the rest with features
                             ### The rownames should be the name of the strains to return strains in test and training set.
