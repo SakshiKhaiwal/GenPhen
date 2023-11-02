@@ -24,11 +24,32 @@ To see all the parameters of the pipeline, run:
 ```
    -python main.py --help
 ```
+
+```
+
+  --data_path DATA_PATH
+                        path to the input data
+  --data_path_out DATA_PATH_OUT
+                        path to the output data
+  --data_splitting_criteria {preprocess_data_randomsplit,preprocess_data_cladesplit}
+  --clades_data_path CLADES_DATA_PATH
+                        path to clades data
+  --do_feature_selection DO_FEATURE_SELECTION
+                        apply feature selection
+  --feature_selection_strategy {lasso_selection_grid,lasso_selection_random,lasso_selection_bayes,high_lasso}
+                        choice of feature selection strategy
+  --model_type {BayesHypOPt_Ridge_regression,BayesHypOPt_Elanet_regression,BayesHypOPt_GBM_regression,BayesHypOPt_SVR_regression,BayesHypOPt_NN_regression,RandHypOPt_Ridge_regression,RandHypOPt_Elanet_regression,RandHypOPt_GBM_regression,RandHypOPt_SVR_regression,RandHypOPt_NN_regression}
+                        used model
+
+
+```
 - Train the model. 
 To train the model with the default parameters, run the following command:
 ```
    -python main.py  --data_path=INPUT_DATA --data_path_out=OUTPUT_DATA_PATH
 ```
+
+
 - Results.
 The output path should contain two JSON files with the suffix '_prediction_accuracy.json' and '_additional_information.json'. Each file contains a dictionary object, '_prediction_accuracy.json':'Test r2 score', 'Train r2 score', 'Test pears value': Test_pears_val, 'Train pears value', 'Training time' and the '_additional_information.json':'y_train_predicted', 'y_test_predicted', 'training_strains', 'testing_strains' and 'Features importance scores'.
 
