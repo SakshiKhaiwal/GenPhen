@@ -1,1 +1,1 @@
-
+This folder contains scripts for multitarget-regression models to predict the entire phenome at once. The folder contains the implementation of the multitarget LASSO, multitarget GBM, and the deep neural network (Unet with residual connections_.
